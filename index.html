@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tomáš Budějcký — elektrikář z Budějc | elektroinstalace, rekonstrukce, revize</title>
+<meta name="description" content="Tomáš Budějcký — elektrikář z Budějc. Kompletní elektroinstalace na míru od návrhu po revizi, rekonstrukce rozvodů, hromosvody, opravy i poruchy. České Budějovice a okolí. Tel 720 332 870." />
+<meta name="theme-color" content="#0a0a0b" />
+
+<!-- favicon: bolt -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23f5b324' d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z'/%3E%3C/svg%3E" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Tomáš Budějcký — elektrikář z Budějc" />
+<meta property="og:description" content="Elektroinstalace na míru, rekonstrukce, hromosvody, opravy i revize. České Budějovice a okolí." />
+<meta property="og:locale" content="cs_CZ" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['"Space Mono"', 'monospace'],
+        },
+        colors: {
+          ink:    '#0a0a0b',
+          panel:  '#121214',
+          panel2: '#17171a',
+          amber:  '#f5b324',
+          ambsoft:'#f7c453',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root { color-scheme: dark; }
+  html, body { background:#0a0a0b; }
+  body { font-family:Inter, system-ui, sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  ::selection { background:#f5b324; color:#0a0a0b; }
+  h1,h2,h3 { font-feature-settings:"ss01"; letter-spacing:-0.02em; }
+
+  /* hairline grid, very faint */
+  .grid-bg{
+    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:64px 64px;
+  }
+
+  /* scroll reveal */
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* input styling */
+  .field{
+    width:100%; border-radius:.85rem; border:1px solid rgba(255,255,255,.10);
+    background:rgba(255,255,255,.03); padding:.7rem .9rem; color:#fff; font-size:.92rem;
+    transition:border-color .25s, background .25s; outline:none;
+  }
+  .field::placeholder{ color:#6b6b70; }
+  .field:focus{ border-color:rgba(245,179,36,.55); background:rgba(245,179,36,.05); }
+  select.field{ appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='m3 5 4 4 4-4'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right .9rem center; }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; }
+    * { scroll-behavior:auto !important; }
+  }
+</style>
+</head>
+
+<body class="text-zinc-300">
+
+<!-- soft top glow + faint grid -->
+<div class="pointer-events-none fixed inset-0 -z-10">
+  <div class="absolute inset-0 grid-bg opacity-60"></div>
+  <div class="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full"
+       style="background:radial-gradient(closest-side, rgba(245,179,36,.10), transparent 70%);"></div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header id="nav" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+    <a href="#top" class="flex items-center gap-2.5">
+      <span class="grid h-9 w-9 place-items-center rounded-lg bg-amber/15 ring-1 ring-amber/30">
+        <svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="currentColor"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg>
+      </span>
+      <span class="font-display text-[1.05rem] font-700 tracking-tight text-white leading-none">
+        Tomáš Budějcký
+        <span class="block font-sans text-[11px] font-450 tracking-normal text-zinc-500">elektrikář z Budějc</span>
+      </span>
+    </a>
+
+    <div class="hidden items-center gap-8 md:flex">
+      <a href="#sluzby"  class="text-sm text-zinc-400 transition hover:text-white">Co dělám</a>
+      <a href="#postup"  class="text-sm text-zinc-400 transition hover:text-white">Jak to chodí</a>
+      <a href="#oblast"  class="text-sm text-zinc-400 transition hover:text-white">Kde pracuju</a>
+      <a href="#faq"     class="text-sm text-zinc-400 transition hover:text-white">Dotazy</a>
+    </div>
+
+    <div class="flex items-center gap-2.5">
+      <a href="tel:+420720332870" class="hidden items-center gap-2 rounded-full border border-white/12 bg-white/[0.03] px-4 py-2 text-sm font-500 text-white transition hover:border-amber/40 sm:flex">
+        <svg viewBox="0 0 24 24" class="h-4 w-4 text-amber" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4.5C2 3.7 2.7 3 3.5 3H6l1.5 5L6 9.5a13 13 0 0 0 6 6L13.5 14 19 15.5V18c0 1-.8 1.7-1.8 1.6A16 16 0 0 1 2 4.5Z"/></svg>
+        720 332 870
+      </a>
+      <a href="#kontakt" class="rounded-full bg-amber px-4 py-2 text-sm font-600 text-ink transition hover:bg-ambsoft active:scale-[0.98]">Poptávka</a>
+      <button id="burger" class="grid h-10 w-10 place-items-center md:hidden" aria-label="Menu">
+        <svg viewBox="0 0 24 24" class="h-6 w-6 text-white" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="hidden border-t border-white/10 bg-ink/95 backdrop-blur-xl md:hidden">
+    <div class="flex flex-col gap-1 px-5 py-4 text-base">
+      <a href="#sluzby"  class="mob-link rounded-lg px-3 py-2.5 text-zinc-300 hover:bg-white/5">Co dělám</a>
+      <a href="#postup"  class="mob-link rounded-lg px-3 py-2.5 text-zinc-300 hover:bg-white/5">Jak to chodí</a>
+      <a href="#oblast"  class="mob-link rounded-lg px-3 py-2.5 text-zinc-300 hover:bg-white/5">Kde pracuju</a>
+      <a href="#faq"     class="mob-link rounded-lg px-3 py-2.5 text-zinc-300 hover:bg-white/5">Dotazy</a>
+      <a href="tel:+420720332870" class="mob-link mt-1 rounded-lg bg-white/5 px-3 py-2.5 font-600 text-white">Zavolat · 720 332 870</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative px-5 pt-32 pb-20 sm:pt-40 sm:pb-28">
+  <div class="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.1fr_.9fr]">
+    <!-- copy -->
+    <div>
+      <div class="reveal inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.03] px-3 py-1.5 text-[11px] font-500 uppercase tracking-[0.18em] text-zinc-400">
+        <span class="h-1.5 w-1.5 rounded-full bg-amber"></span>
+        OSVČ · České Budějovice a okolí
+      </div>
+
+      <h1 class="reveal mt-6 font-display text-[2.5rem] font-700 leading-[1.05] text-white sm:text-[3.4rem] lg:text-[3.9rem]">
+        Elektroinstalace na míru —<br class="hidden sm:block">
+        od&nbsp;návrhu po&nbsp;<span class="text-amber">revizi</span>.
+      </h1>
+
+      <p class="reveal mt-6 max-w-xl text-[1.05rem] leading-relaxed text-zinc-400">
+        Silnoproud i slaboproud, rekonstrukce starých rozvodů, hromosvody, opravy a poruchy.
+        Pro novostavby, byty i komerční prostory. Práci odvedu pořádně, bezpečně a tak,
+        jak bych ji chtěl mít doma sám.
+      </p>
+
+      <div class="reveal mt-8 flex flex-wrap items-center gap-3">
+        <a href="tel:+420720332870" class="group flex items-center gap-2.5 rounded-full bg-amber py-3 pl-6 pr-3 font-600 text-ink transition hover:bg-ambsoft active:scale-[0.98]">
+          Zavolejte: 720 332 870
+          <span class="grid h-8 w-8 place-items-center rounded-full bg-ink/15 transition-transform group-hover:translate-x-0.5">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
+        <a href="#kontakt" class="rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 font-500 text-white transition hover:border-amber/40 hover:bg-white/[0.06]">
+          Napsat poptávku
+        </a>
+      </div>
+
+      <!-- honest trust line -->
+      <div class="reveal mt-9 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-zinc-500">
+        <span>Cenu domluvíme předem</span>
+        <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+        <span>Práci připravím na revizi</span>
+        <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+        <span>Po sobě uklidím</span>
+      </div>
+    </div>
+
+    <!-- honest "vizitka" card (real info, no fake metrics) -->
+    <div class="reveal">
+      <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-panel p-7 sm:p-8">
+        <div class="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-amber/10 blur-3xl"></div>
+        <div class="relative">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="font-mono text-[11px] uppercase tracking-widest text-zinc-500">Elektrikář</div>
+              <div class="mt-1 font-display text-2xl font-700 text-white">Tomáš Budějcký</div>
+            </div>
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-amber/15 ring-1 ring-amber/30">
+              <svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="currentColor"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg>
+            </span>
+          </div>
+
+          <p class="mt-4 text-sm leading-relaxed text-zinc-400">
+            „Elektrikář z Budějc” — jméno i adresu mám pohromadě, tak mi to nějak zůstalo.
+            A vlastně to docela sedí.
+          </p>
+
+          <dl class="mt-6 space-y-3 text-sm">
+            <div class="flex items-center justify-between border-t border-white/8 pt-3">
+              <dt class="text-zinc-500">Telefon</dt>
+              <dd><a href="tel:+420720332870" class="font-mono font-700 text-white hover:text-amber">720&nbsp;332&nbsp;870</a></dd>
+            </div>
+            <div class="flex items-center justify-between border-t border-white/8 pt-3">
+              <dt class="text-zinc-500">E-mail</dt>
+              <dd><a href="mailto:budejckyt@seznam.cz" class="font-mono text-white hover:text-amber">budejckyt@seznam.cz</a></dd>
+            </div>
+            <div class="flex items-center justify-between border-t border-white/8 pt-3">
+              <dt class="text-zinc-500">Působím</dt>
+              <dd class="text-white">České Budějovice a okolí</dd>
+            </div>
+            <div class="flex items-center justify-between border-t border-white/8 pt-3">
+              <dt class="text-zinc-500">IČO</dt>
+              <dd class="font-mono text-white">07128592</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT (personal voice — anti-slop) ============ -->
+<section class="relative px-5 py-16 sm:py-20">
+  <div class="mx-auto max-w-3xl">
+    <div class="reveal rounded-3xl border border-white/10 bg-panel/60 p-7 sm:p-10">
+      <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-amber">Pár slov ode mě</span>
+      <div class="mt-5 space-y-4 text-[1.05rem] leading-relaxed text-zinc-300">
+        <p>
+          Jmenuju se <span class="text-white font-500">Tomáš Budějcký</span> a dělám elektriku v Českých
+          Budějovicích a okolí. Beru práci tak, že buď se udělá pořádně, nebo se nedělá vůbec — žádné
+          provizorky, které za rok začnou zlobit.
+        </p>
+        <p>
+          Ke každé zakázce přistupuju podle toho, co konkrétně potřebujete: jestli jde o kompletní rozvody
+          v novostavbě, modernizaci starého bytu, nebo jen o jednu zásuvku, co přestala fungovat. Vždycky
+          se snažím, abyste věděli, co se kde děje a za kolik — a aby všechno prošlo revizí bez vrásek.
+          Když je potřeba, domluvím se i s dalšími řemeslníky, ať rekonstrukce klapne na první dobrou. 🙂
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLUŽBY ============ -->
+<section id="sluzby" class="relative px-5 py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl">
+    <div class="reveal max-w-2xl">
+      <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-amber">Co dělám</span>
+      <h2 class="mt-4 font-display text-3xl font-700 leading-tight text-white sm:text-[2.7rem]">Od jedné zásuvky po celý dům</h2>
+      <p class="mt-4 text-zinc-400">Postarám se o silnoproud i slaboproud — kompletně, nebo jen o to, co zrovna nehraje.</p>
+    </div>
+
+    <div class="mt-12 grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-3">
+      <!-- each card sits on the hairline gap for a clean engineered grid -->
+      <article class="group bg-panel p-7 transition-colors hover:bg-panel2">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-amber/12 ring-1 ring-amber/25">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg>
+        </div>
+        <h3 class="mt-5 font-display text-lg font-600 text-white">Kompletní elektroinstalace na míru</h3>
+        <p class="mt-2 text-sm leading-relaxed text-zinc-400">Od návrhu po realizaci — pro novostavby, byty i komerční prostory. Kabeláž, rozvaděč, zásuvkové i světelné okruhy.</p>
+      </article>
+
+      <article class="group bg-panel p-7 transition-colors hover:bg-panel2">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-amber/12 ring-1 ring-amber/25">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h13M3 12h10M3 17h7M19 5l2 2-2 2M21 14l-2 2 2 2"/></svg>
+        </div>
+        <h3 class="mt-5 font-display text-lg font-600 text-white">Silnoproud i slaboproud</h3>
+        <p class="mt-2 text-sm leading-relaxed text-zinc-400">Silové rozvody i slaboproudé okruhy — zásuvky, světla, ovládání i nízkonapěťové systémy v jednom.</p>
+      </article>
+
+      <article class="group bg-panel p-7 transition-colors hover:bg-panel2">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-amber/12 ring-1 ring-amber/25">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3 4 14h6l-1 7 10-12h-6z"/></svg>
+        </div>
+        <h3 class="mt-5 font-display text-lg font-600 text-white">Rekonstrukce a modernizace</h3>
+        <p class="mt-2 text-sm leading-relaxed text-zinc-400">Výměna nevyhovujících a nefunkčních instalací, nové jističe s chráničem. I ve spolupráci s dalšími řemeslníky.</p>
+      </article>
+
+      <article class="group bg-panel p-7 transition-colors hover:bg-panel2">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-amber/12 ring-1 ring-amber/25">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v7M5 9a7 7 0 0 0 14 0M7 16l-1 5M17 16l1 5"/></svg>
+        </div>
+        <h3 class="mt-5 font-display text-lg font-600 text-white">Hromosvody a uzemnění</h3>
+        <p class="mt-2 text-sm leading-relaxed text-zinc-400">Montáž, opravy i kontrola hromosvodu a uzemnění — jímací soustava, svody, zemniče. Ochrana, na kterou se spolehnete při každé bouřce.</p>
+      </article>
+
+      <article class="group bg-panel p-7 transition-colors hover:bg-panel2">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-amber/12 ring-1 ring-amber/25">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.3 1 2.5h6c0-1.2.3-1.8 1-2.5A6 6 0 0 0 12 3Z"/></svg>
+        </div>
+        <h3 class="mt-5 font-display text-lg font-600 text-white">Osvětlení, zásuvky, spotřebiče</h3>
+        <p class="mt-2 text-sm leading-relaxed text-zinc-400">Montáž osvětlení, zásuvek a vypínačů, zapojení spotřebičů a úpravy odběrných míst.</p>
+      </article>
+
+      <article class="group bg-panel p-7 transition-colors hover:bg-panel2">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-amber/12 ring-1 ring-amber/25">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="M8 21h8M7 9h.01M7 13h.01M11 9h6M11 13h4"/></svg>
+        </div>
+        <h3 class="mt-5 font-display text-lg font-600 text-white">Datové a televizní rozvody</h3>
+        <p class="mt-2 text-sm leading-relaxed text-zinc-400">Strukturovaná kabeláž pro internet, data a televizi — ať máte signál tam, kde ho potřebujete.</p>
+      </article>
+
+      <article class="group bg-panel p-7 transition-colors hover:bg-panel2">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-amber/12 ring-1 ring-amber/25">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 5 6v5c0 4.4 3 8 7 9 4-1 7-4.6 7-9V6z"/><path d="m9 11.5 2 2 4-4"/></svg>
+        </div>
+        <h3 class="mt-5 font-display text-lg font-600 text-white">Revize výchozí i periodické</h3>
+        <p class="mt-2 text-sm leading-relaxed text-zinc-400">Zajistím výchozí i periodickou revizi — a hlavně práci připravím tak, aby prošla bez závad.</p>
+      </article>
+
+      <article class="group bg-panel p-7 transition-colors hover:bg-panel2">
+        <div class="grid h-11 w-11 place-items-center rounded-xl bg-amber/12 ring-1 ring-amber/25">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+        </div>
+        <h3 class="mt-5 font-display text-lg font-600 text-white">Opravy, údržba a poruchy</h3>
+        <p class="mt-2 text-sm leading-relaxed text-zinc-400">Vypadávající jistič, mrtvá zásuvka, blikající světla. Najdu příčinu a opravím stávající instalaci.</p>
+      </article>
+
+      <!-- closing CTA cell -->
+      <article class="flex flex-col justify-between bg-gradient-to-br from-amber/[0.12] to-panel p-7">
+        <div>
+          <h3 class="font-display text-lg font-600 text-white">Nevíte si rady, do které kolonky to patří?</h3>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-300">Napište mi popis a fotku rozvaděče nebo problému — ozvu se, co s tím.</p>
+        </div>
+        <a href="#kontakt" class="mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-amber px-5 py-2.5 text-sm font-600 text-ink transition hover:bg-ambsoft">
+          Napsat
+          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HODNOTY ============ -->
+<section class="relative px-5 py-12 sm:py-16">
+  <div class="mx-auto grid max-w-6xl gap-4 md:grid-cols-3">
+    <div class="reveal rounded-2xl border border-white/10 bg-panel p-7">
+      <div class="font-display text-3xl font-700 text-amber">01</div>
+      <h3 class="mt-3 font-display text-xl font-600 text-white">Kvalitně odvedená práce</h3>
+      <p class="mt-2 text-sm leading-relaxed text-zinc-400">Co udělám, udělám tak, aby to vydrželo. Žádné dočasné záplaty, které se za rok vrátí.</p>
+    </div>
+    <div class="reveal rounded-2xl border border-white/10 bg-panel p-7">
+      <div class="font-display text-3xl font-700 text-amber">02</div>
+      <h3 class="mt-3 font-display text-xl font-600 text-white">Bezpečnost na prvním místě</h3>
+      <p class="mt-2 text-sm leading-relaxed text-zinc-400">Práce podle platných norem a připravená na revizi. U elektřiny se na nic nehraje.</p>
+    </div>
+    <div class="reveal rounded-2xl border border-white/10 bg-panel p-7">
+      <div class="font-display text-3xl font-700 text-amber">03</div>
+      <h3 class="mt-3 font-display text-xl font-600 text-white">Individuální přístup</h3>
+      <p class="mt-2 text-sm leading-relaxed text-zinc-400">Každý dům i provoz je jiný. Řešení přizpůsobím vám a vašemu rozpočtu, ne naopak.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POSTUP ============ -->
+<section id="postup" class="relative px-5 py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl">
+    <div class="reveal max-w-2xl">
+      <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-amber">Jak to chodí</span>
+      <h2 class="mt-4 font-display text-3xl font-700 leading-tight text-white sm:text-[2.7rem]">Žádná překvapení na faktuře</h2>
+      <p class="mt-4 text-zinc-400">Vždycky víte, co se děje, kdy a za kolik. Cenu domluvíme předem a držím se jí.</p>
+    </div>
+
+    <div class="mt-12 grid gap-4 md:grid-cols-4">
+      <div class="reveal rounded-2xl border border-white/10 bg-panel p-6">
+        <div class="font-mono text-sm font-700 text-amber">01</div>
+        <div class="mt-3 h-px w-full bg-gradient-to-r from-amber/40 to-transparent"></div>
+        <h3 class="mt-4 font-display text-lg font-600 text-white">Ozvete se</h3>
+        <p class="mt-2 text-sm leading-relaxed text-zinc-400">Zavoláte nebo napíšete, co řešíte. Klidně přiložte fotku.</p>
+      </div>
+      <div class="reveal rounded-2xl border border-white/10 bg-panel p-6">
+        <div class="font-mono text-sm font-700 text-amber">02</div>
+        <div class="mt-3 h-px w-full bg-gradient-to-r from-amber/40 to-transparent"></div>
+        <h3 class="mt-4 font-display text-lg font-600 text-white">Prohlídka a nabídka</h3>
+        <p class="mt-2 text-sm leading-relaxed text-zinc-400">Přijedu se podívat, probereme rozsah a připravím cenu předem.</p>
+      </div>
+      <div class="reveal rounded-2xl border border-white/10 bg-panel p-6">
+        <div class="font-mono text-sm font-700 text-amber">03</div>
+        <div class="mt-3 h-px w-full bg-gradient-to-r from-amber/40 to-transparent"></div>
+        <h3 class="mt-4 font-display text-lg font-600 text-white">Realizace</h3>
+        <p class="mt-2 text-sm leading-relaxed text-zinc-400">Udělám práci v domluveném termínu, čistě a po sobě uklidím.</p>
+      </div>
+      <div class="reveal rounded-2xl border border-white/10 bg-panel p-6">
+        <div class="font-mono text-sm font-700 text-amber">04</div>
+        <div class="mt-3 h-px w-full bg-gradient-to-r from-amber/40 to-transparent"></div>
+        <h3 class="mt-4 font-display text-lg font-600 text-white">Revize a předání</h3>
+        <p class="mt-2 text-sm leading-relaxed text-zinc-400">Zajistím revizi a vše společně vyzkoušíme. Pak je hotovo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OBLAST ============ -->
+<section id="oblast" class="relative px-5 py-16 sm:py-24">
+  <div class="mx-auto max-w-6xl">
+    <div class="overflow-hidden rounded-3xl border border-white/10 bg-panel">
+      <div class="grid lg:grid-cols-[1.1fr_.9fr]">
+        <div class="reveal p-8 sm:p-12">
+          <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-amber">Kde pracuju</span>
+          <h2 class="mt-4 font-display text-3xl font-700 leading-tight text-white sm:text-4xl">Jižní Čechy, doma v Budějcích</h2>
+          <p class="mt-5 max-w-md leading-relaxed text-zinc-400">
+            Jezdím po celých jižních Čechách, ale doma jsem v Českých Budějovicích a okolí — sem to mám
+            nejblíž a stihnu i rychlou opravu. Když si nejste jistí, jestli to k vám zvládnu, prostě
+            zavolejte a domluvíme se.
+          </p>
+          <div class="mt-7 flex flex-wrap gap-2">
+            <span class="rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-sm text-zinc-300">České Budějovice</span>
+            <span class="rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-sm text-zinc-300">Hluboká nad Vltavou</span>
+            <span class="rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-sm text-zinc-300">Týn nad Vltavou</span>
+            <span class="rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-sm text-zinc-300">Trhové Sviny</span>
+            <span class="rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-sm text-zinc-300">…a okolí</span>
+          </div>
+        </div>
+        <!-- stylised map motif (not a fake live map) -->
+        <div class="relative min-h-[260px] border-t border-white/10 bg-panel2 lg:border-l lg:border-t-0">
+          <svg class="absolute inset-0 h-full w-full opacity-[0.5]" viewBox="0 0 400 320" fill="none" preserveAspectRatio="xMidYMid slice">
+            <g stroke="#ffffff" stroke-opacity="0.07" stroke-width="1">
+              <path d="M0 70 H400 M0 140 H400 M0 210 H400 M0 280 H400 M70 0 V320 M150 0 V320 M230 0 V320 M310 0 V320"/>
+            </g>
+            <path d="M40 240 C110 200 90 130 170 120 C250 110 240 60 330 70" stroke="#f5b324" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="3 7" fill="none"/>
+          </svg>
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+            <span class="relative grid h-14 w-14 place-items-center rounded-full bg-amber/15 ring-1 ring-amber/40">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber/30"></span>
+              <svg viewBox="0 0 24 24" class="relative h-6 w-6 text-amber" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </span>
+            <div class="mt-3 font-display font-600 text-white">České Budějovice</div>
+            <div class="font-mono text-xs text-zinc-500">a okolí</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="relative px-5 py-20 sm:py-28">
+  <div class="mx-auto max-w-3xl">
+    <div class="reveal">
+      <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-amber">Časté dotazy</span>
+      <h2 class="mt-4 font-display text-3xl font-700 leading-tight text-white sm:text-[2.7rem]">Než zavoláte</h2>
+    </div>
+
+    <div class="mt-10 space-y-3" id="faqList">
+      <!-- items injected below via markup -->
+      <div class="faq-item overflow-hidden rounded-2xl border border-white/10 bg-panel">
+        <button class="faq-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left">
+          <span class="font-display text-base font-600 text-white sm:text-lg">Děláte i revize?</span>
+          <span class="faq-ico grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/15 text-zinc-400 transition-transform">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="faq-panel hidden px-6 pb-6 text-sm leading-relaxed text-zinc-400">Revizi pro vás zajistím — výchozí i periodickou. Samotnou revizní zprávu vystavuje revizní technik, ale práci připravím tak, aby revizí prošla bez závad.</div>
+      </div>
+
+      <div class="faq-item overflow-hidden rounded-2xl border border-white/10 bg-panel">
+        <button class="faq-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left">
+          <span class="font-display text-base font-600 text-white sm:text-lg">Uděláte i malou opravu, nebo jen velké zakázky?</span>
+          <span class="faq-ico grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/15 text-zinc-400 transition-transform">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="faq-panel hidden px-6 pb-6 text-sm leading-relaxed text-zinc-400">Klidně přijedu i kvůli jedné zásuvce. Malou opravu i kompletní instalaci beru stejně vážně.</div>
+      </div>
+
+      <div class="faq-item overflow-hidden rounded-2xl border border-white/10 bg-panel">
+        <button class="faq-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left">
+          <span class="font-display text-base font-600 text-white sm:text-lg">Jak to bude s cenou?</span>
+          <span class="faq-ico grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/15 text-zinc-400 transition-transform">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="faq-panel hidden px-6 pb-6 text-sm leading-relaxed text-zinc-400">Cenu domluvíme předem, většinou po prohlídce. Žádné dodatečné překvapení na faktuře — pokud se nezmění rozsah na vaše přání.</div>
+      </div>
+
+      <div class="faq-item overflow-hidden rounded-2xl border border-white/10 bg-panel">
+        <button class="faq-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left">
+          <span class="font-display text-base font-600 text-white sm:text-lg">Kam všude jezdíte?</span>
+          <span class="faq-ico grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/15 text-zinc-400 transition-transform">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="faq-panel hidden px-6 pb-6 text-sm leading-relaxed text-zinc-400">Především České Budějovice a okolí, ale po jižních Čechách se domluvíme. Když váháte, jestli to k vám stihnu, zavolejte.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KONTAKT ============ -->
+<section id="kontakt" class="relative px-5 py-20 sm:py-28">
+  <div class="mx-auto max-w-6xl">
+    <div class="overflow-hidden rounded-3xl border border-white/10 bg-panel">
+      <div class="grid lg:grid-cols-[1fr_1.1fr]">
+        <!-- left: real contact -->
+        <div class="reveal border-b border-white/10 p-8 sm:p-12 lg:border-b-0 lg:border-r">
+          <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-amber">Kontakt</span>
+          <h2 class="mt-4 font-display text-3xl font-700 leading-tight text-white sm:text-4xl">Pojďme se domluvit</h2>
+          <p class="mt-4 max-w-md text-zinc-400">Napište, co potřebujete, nebo rovnou zavolejte. Ozvu se, co nejdřív budu moct.</p>
+
+          <div class="mt-8 space-y-3">
+            <a href="tel:+420720332870" class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-4 transition hover:border-amber/40 hover:bg-white/[0.05]">
+              <span class="grid h-11 w-11 place-items-center rounded-xl bg-amber/15 ring-1 ring-amber/30"><svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4.5C2 3.7 2.7 3 3.5 3H6l1.5 5L6 9.5a13 13 0 0 0 6 6L13.5 14 19 15.5V18c0 1-.8 1.7-1.8 1.6A16 16 0 0 1 2 4.5Z"/></svg></span>
+              <div><div class="text-xs uppercase tracking-wider text-zinc-500">Telefon</div><div class="font-mono font-700 text-white">+420 720 332 870</div></div>
+            </a>
+            <a href="mailto:budejckyt@seznam.cz" class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-4 transition hover:border-amber/40 hover:bg-white/[0.05]">
+              <span class="grid h-11 w-11 place-items-center rounded-xl bg-amber/15 ring-1 ring-amber/30"><svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+              <div><div class="text-xs uppercase tracking-wider text-zinc-500">E-mail</div><div class="font-mono text-white">budejckyt@seznam.cz</div></div>
+            </a>
+            <div class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-4">
+              <span class="grid h-11 w-11 place-items-center rounded-xl bg-amber/15 ring-1 ring-amber/30"><svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+              <div><div class="text-xs uppercase tracking-wider text-zinc-500">Působnost</div><div class="font-500 text-white">České Budějovice a okolí</div></div>
+            </div>
+            <div class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-4">
+              <span class="grid h-11 w-11 place-items-center rounded-xl bg-amber/15 ring-1 ring-amber/30"><svg viewBox="0 0 24 24" class="h-5 w-5 text-amber" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
+              <div><div class="text-xs uppercase tracking-wider text-zinc-500">IČO</div><div class="font-mono text-white">07128592</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- form: builds a mailto, works without backend -->
+        <div class="p-8 sm:p-12">
+          <form id="poptForm" class="space-y-4">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <label class="block">
+                <span class="mb-1.5 block text-xs font-600 uppercase tracking-wider text-zinc-500">Jméno</span>
+                <input name="jmeno" type="text" required placeholder="Jan Novák" class="field" />
+              </label>
+              <label class="block">
+                <span class="mb-1.5 block text-xs font-600 uppercase tracking-wider text-zinc-500">Telefon</span>
+                <input name="telefon" type="tel" required placeholder="+420 …" class="field" />
+              </label>
+            </div>
+            <label class="block">
+              <span class="mb-1.5 block text-xs font-600 uppercase tracking-wider text-zinc-500">Co potřebujete?</span>
+              <select name="sluzba" class="field">
+                <option>Kompletní elektroinstalace na míru</option>
+                <option>Rekonstrukce / modernizace rozvodů</option>
+                <option>Oprava / porucha</option>
+                <option>Hromosvod a uzemnění</option>
+                <option>Osvětlení, zásuvky, spotřebiče</option>
+                <option>Datové / TV rozvody</option>
+                <option>Revize</option>
+                <option>Něco jiného</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="mb-1.5 block text-xs font-600 uppercase tracking-wider text-zinc-500">Popis</span>
+              <textarea name="popis" rows="4" placeholder="Pár vět o tom, co řešíte, kde a kdy by se to hodilo." class="field"></textarea>
+            </label>
+            <button type="submit" class="group flex w-full items-center justify-center gap-2 rounded-full bg-amber py-3.5 font-600 text-ink transition hover:bg-ambsoft active:scale-[0.99]">
+              Odeslat poptávku
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <p class="text-center text-[11px] text-zinc-600">Formulář otevře váš e-mailový program s předvyplněnou zprávou. Raději zavoláte? <a href="tel:+420720332870" class="text-amber hover:underline">720 332 870</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-white/10 px-5 py-12">
+  <div class="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+    <div class="flex items-center gap-2.5">
+      <span class="grid h-8 w-8 place-items-center rounded-lg bg-amber/15 ring-1 ring-amber/30">
+        <svg viewBox="0 0 24 24" class="h-4 w-4 text-amber" fill="currentColor"><path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg>
+      </span>
+      <div>
+        <div class="font-display font-700 text-white leading-none">Tomáš Budějcký</div>
+        <div class="text-xs text-zinc-500">elektrikář z Budějc · IČO 07128592</div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-1 text-sm text-zinc-500 sm:text-right">
+      <a href="tel:+420720332870" class="hover:text-white">720 332 870</a>
+      <a href="mailto:budejckyt@seznam.cz" class="hover:text-white">budejckyt@seznam.cz</a>
+      <span>České Budějovice a okolí</span>
+    </div>
+  </div>
+  <div class="mx-auto mt-8 max-w-6xl border-t border-white/5 pt-6 text-xs text-zinc-600">
+    © <span id="year"></span> Tomáš Budějcký. Elektroinstalace, rekonstrukce, hromosvody, revize a poruchy — jižní Čechy.
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // nav: subtle background on scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 30) nav.classList.add('bg-ink/85','backdrop-blur-xl','border-b','border-white/10');
+    else nav.classList.remove('bg-ink/85','backdrop-blur-xl','border-b','border-white/10');
+  };
+  window.addEventListener('scroll', onScroll, { passive:true }); onScroll();
+
+  // mobile menu
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => menu.classList.toggle('hidden'));
+  document.querySelectorAll('.mob-link').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling;
+      const ico = btn.querySelector('.faq-ico');
+      const open = !panel.classList.contains('hidden');
+      // close all
+      document.querySelectorAll('.faq-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.faq-ico').forEach(i => { i.classList.remove('rotate-45','border-amber/50','text-amber'); });
+      if (!open) {
+        panel.classList.remove('hidden');
+        ico.classList.add('rotate-45','border-amber/50','text-amber');
+      }
+    });
+  });
+
+  // contact form -> mailto (no backend needed)
+  document.getElementById('poptForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = e.target;
+    const jmeno = f.jmeno.value.trim();
+    const tel = f.telefon.value.trim();
+    const sluzba = f.sluzba.value;
+    const popis = f.popis.value.trim();
+    const subject = `Poptávka z webu: ${sluzba}`;
+    const body =
+      `Jméno: ${jmeno}\n` +
+      `Telefon: ${tel}\n` +
+      `Služba: ${sluzba}\n\n` +
+      `Popis:\n${popis || '—'}\n`;
+    window.location.href =
+      `mailto:budejckyt@seznam.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+</body>
+</html>
