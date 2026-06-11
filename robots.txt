@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://budejcky-elektrikar.vercel.app/sitemap.xml
