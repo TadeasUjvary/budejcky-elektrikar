@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://budejcky-elektrikar.vercel.app/sitemap.xml
+Sitemap: https://tb-elektro.cz/sitemap.xml
